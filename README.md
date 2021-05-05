@@ -8,7 +8,7 @@ go get github.com/zhangjie2012/logrus-hook
 
 ## Redis LIST
 
-log write to redis LIST.
+log write(`RPUSH`) to redis LIST.
 
 ```go
 option := RedisOption{
