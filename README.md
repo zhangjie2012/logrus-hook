@@ -10,15 +10,15 @@ go get github.com/zhangjie2012/logrus-hook
 
 log write to redis LIST.
 
-```
-  option := RedisOption{
-	  Addr:     "localhost:6379",
-	  Password: "",
-	  DB:       0,
-	  Key:      "logrusredis.hook",
-  }
-  hook, _ := NewRedisHook(appName, &option, nil)
-  logrus.AddHook(hook)
+```go
+option := RedisOption{
+    Addr:     "localhost:6379",
+    Password: "",
+    DB:       0,
+    Key:      "logrusredis.hook",
+}
+hook, _ := NewRedisHook("application_name", &option, nil)
+logrus.AddHook(hook)
 ```
 
 ## Customize
