@@ -15,6 +15,7 @@ import (
 type LogWashFunc func(appName string, t time.Time, metadata logrus.Fields, caller *runtime.Frame, level logrus.Level, message string) []byte
 
 type DefaultLogS struct {
+	AppName  string        `msgpack:"@appname"`
 	Time     time.Time     `msgpack:"@time"`
 	MetaData logrus.Fields `msgpack:"@metadata"` // map[string]interface{}
 	Ip       string        `msgpack:"@ip"`
@@ -60,6 +61,7 @@ func DefaultLogWashFunc(appName string, t time.Time, metadata logrus.Fields, cal
 	}
 
 	l := DefaultLogS{
+		AppName:  appName,
 		Time:     t,
 		MetaData: metadata,
 		Ip:       getIp(),
